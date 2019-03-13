@@ -1,6 +1,10 @@
 var express = require('express')
 var router = express.Router()
-var PythonShell = require('python-shell')
+const spawn = require('child_process').spawn
+
+const greenLedProcess = spawn('python', [ '/python/green_led.py' ])
+const yellowLedProcess = spawn('python', [ '/python/yellow_led.py' ])
+const redLedProcess = spawn('python', [ '/python/red_led.py' ])
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -12,35 +16,26 @@ router.get('/yellow', yellow)
 router.get('/red', red)
 
 function green(req, res) {
-	console.log('Turning on green led...')
-	PythonShell.run('python/red_led.py', null, function(err) {
-		if (err) {
-			throw err
-		} else {
-			console.log('finished')
-		}
+	console.log('Turning on yellow led...')
+	greenLedProcess.stdout.on('data', (data) => {
+		console.log('Done!')
+		res.render('/')
 	})
 }
 
 function yellow(req, res) {
 	console.log('Turning on yellow led...')
-	PythonShell.run('python/yellow_led.py', null, function(err) {
-		if (err) {
-			throw err
-		} else {
-			console.log('finished')
-		}
+	yellowLedProcess.stdout.on('data', (data) => {
+		console.log('Done!')
+		res.render('/')
 	})
 }
 
 function red(req, res) {
 	console.log('Turning on red led...')
-	PythonShell.run('python/red_led.py', null, function(err) {
-		if (err) {
-			throw err
-		} else {
-			console.log('finished')
-		}
+	redLedProcess.stdout.on('data', (data) => {
+		console.log('Done!')
+		res.render('/')
 	})
 }
 
