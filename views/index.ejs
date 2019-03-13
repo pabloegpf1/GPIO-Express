@@ -8,14 +8,11 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-	<script src="script.js"></script>
   </head>
   <body>
     <h1>Raspberry Pi</h1>
-    <button type="button" class="btn btn-success btn-lg btn-block">Green</button>
-    <button type="button" class="btn btn-warning btn-lg btn-block">Yellow</button>
-    <form action="/red" method="post">
-	<input type="submit" class="btn btn-danger btn-lg btn-block" />
-    </form>
+    <a class="btn btn-success btn-lg btn-block" href="/green" role="button">Green</a>
+    <a class="btn btn-warning btn-lg btn-block" href="/yellow" role="button">Yellow</a>
+    <a class="btn btn-danger btn-lg btn-block" href="/red" role="button">Red</a>
   </body>
 </html>
