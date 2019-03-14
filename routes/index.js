@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
 router.get('/green', green)
 router.get('/yellow', yellow)
 router.get('/red', red)
+router.get('/auto', auto)
 
 module.exports = router
 
@@ -47,6 +48,21 @@ function yellow(req, res) {
 function red(req, res) {
 	console.log('Turning on red led...')
 	var child = exec('python ./public/python/red_led.py')
+	child.stdout.on('data', function(data) {
+		console.log('stdout: ' + data)
+	})
+	child.stderr.on('data', function(data) {
+		console.log('stdout: ' + data)
+	})
+	child.on('close', function(code) {
+		console.log('closing code: ' + code)
+	})
+	res.redirect('/')
+}
+
+function auto(req, res) {
+	console.log('Turning on auto led...')
+	var child = exec('python ./public/python/loop_led.py')
 	child.stdout.on('data', function(data) {
 		console.log('stdout: ' + data)
 	})
