@@ -12,7 +12,7 @@ To be able to execute this scripts you'll have to connect the Pi to a breadboard
 
 ### User interface
 <p align="center">
-<img src="https://i.imgur.com/pKlWWJ5.png" alt="alt text" width="650">
+<img src="https://i.imgur.com/pKlWWJ5.png" alt="User Interface" width="650">
 <p>
   
 
